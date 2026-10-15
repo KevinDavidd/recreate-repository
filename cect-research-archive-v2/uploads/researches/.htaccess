@@ -1,0 +1,4 @@
+# Deny ALL direct browser access to uploaded PDF files.
+# All downloads are served through download.php which enforces authentication.
+Options -Indexes
+Deny from all

@@ -1,0 +1,437 @@
+/* =================================================================
+   CECT Research Archive System — Main Stylesheet
+   Theme: #008000 (Green) | #FFFFFF (White) | #F4C430 (Gold)
+   Bootstrap 5 base + custom overrides
+================================================================= */
+
+/* ── CSS Variables ──────────────────────────────────────────────── */
+:root {
+  --cect-green:       #008000;
+  --cect-green-dark:  #006600;
+  --cect-green-hover: #007000;
+  --cect-green-light: #e8f5e8;
+  --cect-gold:        #F4C430;
+  --cect-gold-dark:   #d4a800;
+  --cect-white:       #ffffff;
+  --sidebar-width:    260px;
+  --topbar-height:    64px;
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f4f6f8;
+  color: #212529;
+}
+
+/* ── Gold utility ───────────────────────────────────────────────── */
+.text-gold  { color: var(--cect-gold) !important; }
+.bg-gold    { background-color: var(--cect-gold) !important; }
+
+/* =================================================================
+   LOGIN PAGE — Split-panel layout
+================================================================= */
+.login-page {
+  min-height: 100vh;
+  background: #f0f4f0;
+}
+
+/* Left panel — campus image */
+.login-image-panel {
+  position: relative;
+  min-height: 100vh;
+  background: var(--cect-green);
+  overflow: hidden;
+}
+
+.login-image-panel img.campus-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Dark overlay on campus image for readability */
+.login-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,80,0,0.45) 0%,
+    rgba(0,60,0,0.70) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+}
+
+.login-image-overlay .university-label {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.login-image-overlay .university-sub {
+  color: rgba(255,255,255,0.80);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.login-image-overlay .gold-bar {
+  width: 48px;
+  height: 4px;
+  background: var(--cect-gold);
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+/* Right panel — login form */
+.login-form-panel {
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+}
+
+.login-form-panel .login-logo {
+  width: 64px;
+  height: 64px;
+  background: var(--cect-green-light);
+  border: 3px solid var(--cect-green);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.login-form-panel .login-title {
+  color: var(--cect-green);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.login-form-panel .login-subtitle {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.login-divider {
+  border: none;
+  border-top: 2px solid var(--cect-green-light);
+  margin: 1.25rem 0;
+}
+
+/* ── Auth pages (register, pending, suspended) ──────────────────── */
+.auth-body {
+  background: url('../images/campus.jpg') center center / cover no-repeat fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+.auth-body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 60, 0, 0.60);
+  z-index: 0;
+}
+
+.auth-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.auth-card { border-radius: 1rem !important; }
+
+.auth-header {
+  background: var(--cect-green);
+}
+
+.auth-logo {
+  width: 72px;
+  height: 72px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* ── Student navbar ─────────────────────────────────────────────── */
+.cect-navbar {
+  background: var(--cect-green) !important;
+  min-height: 60px;
+}
+
+.cect-navbar .navbar-brand:hover { opacity: 0.9; }
+
+/* ── Avatar circle ──────────────────────────────────────────────── */
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: var(--cect-gold);
+  color: var(--cect-green-dark);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.avatar-sm  { width: 30px; height: 30px; min-width: 30px; font-size: 12px; }
+.avatar-lg  { width: 56px; height: 56px; min-width: 56px; font-size: 22px; }
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+.cect-footer {
+  background: var(--cect-green);
+}
+
+/* ── Welcome banner ─────────────────────────────────────────────── */
+.welcome-banner {
+  background: var(--cect-green);
+  border: none;
+}
+
+/* ── Research cards ─────────────────────────────────────────────── */
+.research-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+}
+.research-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+}
+
+.research-title {
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.abstract-preview {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+/* ── Research detail page ────────────────────────────────────────── */
+.card-header-strip {
+  background: var(--cect-green);
+}
+
+.detail-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #495057;
+  border-bottom: 2px solid var(--cect-green-light);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.detail-section { border-bottom: 1px solid #f0f0f0; padding-bottom: 1.25rem; }
+.detail-section:last-child { border-bottom: none; padding-bottom: 0; }
+
+.committee-card { border-left: 3px solid var(--cect-green) !important; }
+
+/* ── Course / Type badges ────────────────────────────────────────── */
+.badge-it        { background-color: #0d6efd; color: #fff; }
+.badge-compe     { background-color: #6f42c1; color: #fff; }
+.badge-compsci   { background-color: #20c997; color: #fff; }
+.badge-webapp    { background-color: #0d6efd; color: #fff; }
+.badge-mobile    { background-color: #008000; color: #fff; }
+.badge-iot       { background-color: #fd7e14; color: #fff; }
+.badge-ml        { background-color: #6f42c1; color: #fff; }
+.badge-desktop   { background-color: #6c757d; color: #fff; }
+.badge-cyber     { background-color: #dc3545; color: #fff; }
+.badge-analytics { background-color: #0dcaf0; color: #000; }
+
+/* ── Pending / Suspended pages ───────────────────────────────────── */
+.pending-icon {
+  width: 90px; height: 90px;
+  background: #fff3cd; border: 3px solid #ffc107;
+}
+.suspended-icon {
+  width: 90px; height: 90px;
+  background: #f8d7da; border: 3px solid #dc3545;
+}
+
+/* ── Admin layout ───────────────────────────────────────────────── */
+.admin-body { background: #f0f2f5; }
+
+.admin-sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--cect-green-dark);
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 992px) {
+  .offcanvas-lg {
+    position: sticky !important;
+    transform: none !important;
+    visibility: visible !important;
+    background: var(--cect-green-dark) !important;
+    border: none !important;
+  }
+}
+
+.admin-content {
+  min-height: 100vh;
+  background: #f0f2f5;
+  min-width: 0;
+}
+
+.admin-topbar {
+  background: #fff;
+  height: var(--topbar-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--cect-green) !important;
+}
+
+/* ── Sidebar navigation ─────────────────────────────────────────── */
+.sidebar-brand { min-height: 80px; }
+
+.nav-section-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sidebar-link i { font-size: 1rem; min-width: 18px; }
+
+.sidebar-link:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.10);
+  border-left-color: var(--cect-gold);
+}
+
+.sidebar-link.active {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border-left-color: var(--cect-gold);
+  font-weight: 600;
+}
+
+.sidebar-link.text-danger-emphasis { color: #ff9999 !important; }
+.sidebar-link.text-danger-emphasis:hover { color: #ffbbbb !important; }
+
+/* ── Admin stat cards ────────────────────────────────────────────── */
+.stat-icon {
+  width: 52px; height: 52px; min-width: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 0.75rem !important;
+}
+
+/* ── Utilities ──────────────────────────────────────────────────── */
+.x-small { font-size: 0.72rem; }
+
+.btn-xs {
+  padding: 2px 7px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+/* ── Bootstrap btn-success → #008000 ────────────────────────────── */
+.btn-success,
+.btn-success:active {
+  background-color: var(--cect-green) !important;
+  border-color:     var(--cect-green) !important;
+  color: #fff !important;
+}
+.btn-success:hover,
+.btn-success:focus {
+  background-color: var(--cect-green-hover) !important;
+  border-color:     var(--cect-green-hover) !important;
+}
+
+.btn-outline-success {
+  color:        var(--cect-green) !important;
+  border-color: var(--cect-green) !important;
+}
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+  background-color: var(--cect-green) !important;
+  border-color:     var(--cect-green) !important;
+  color: #fff !important;
+}
+
+/* ── Form focus ring → green ─────────────────────────────────────── */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--cect-green);
+  box-shadow: 0 0 0 0.2rem rgba(0,128,0,0.18);
+}
+
+/* ── Pagination ──────────────────────────────────────────────────── */
+.page-item.active .page-link {
+  background-color: var(--cect-green);
+  border-color:     var(--cect-green);
+}
+.page-link { color: var(--cect-green); }
+.page-link:hover { color: var(--cect-green-hover); }
+
+/* ── Student ID validation ───────────────────────────────────────── */
+.sid-valid   { color: var(--cect-green); }
+.sid-invalid { color: #dc3545; }
+
+/* ── Sidebar scrollbar ───────────────────────────────────────────── */
+.admin-sidebar::-webkit-scrollbar       { width: 4px; }
+.admin-sidebar::-webkit-scrollbar-track { background: transparent; }
+.admin-sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 2px; }
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .admin-sidebar { min-height: unset; height: auto; position: relative; }
+  .admin-content { min-height: unset; }
+  /* Login: stack vertically on mobile */
+  .login-image-panel { min-height: 240px; }
+  .login-form-panel  { padding: 2rem 1.5rem; }
+}
+
+@media (max-width: 575.98px) {
+  .auth-card { border-radius: 0 !important; min-height: 100vh; }
+  .auth-wrapper { padding: 0 !important; }
+  .login-image-panel { min-height: 200px; }
+  .login-form-panel  { min-height: unset; padding: 1.5rem 1.25rem; }
+}
