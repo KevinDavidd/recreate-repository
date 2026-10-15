@@ -1,0 +1,14 @@
+# Uploaded research PDFs (student capstone/thesis files — not source code)
+uploads/researches/*
+!uploads/researches/.htaccess
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
